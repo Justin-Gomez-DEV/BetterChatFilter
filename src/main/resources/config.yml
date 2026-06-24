@@ -1,0 +1,23 @@
+filters:
+  profanity:
+    enabled: true
+
+  spam:
+    enabled: true
+
+  caps:
+    enabled: true
+    threshold: 70
+
+  links:
+    enabled: true
+
+  character-spam:
+    enabled: true
+    repeat-limit: 5
+
+  normaliser:
+    enabled: true
+
+  advertising:
+    enabled: true

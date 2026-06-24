@@ -1,0 +1,7 @@
+messages:
+  profanity: "&7[&c!&7] Your message wasn't sent because it contained profanity."
+  spam: "&7[&c!&7] Your message wasn't sent because it was spam."
+  caps: "&7[&c!&7] Your message wasn't sent because it contained excessive caps."
+  links: "&7[&c!&7] Your message wasn't sent because it contained a link."
+  character-spam: "&7[&c!&7] Your message wasn't sent because it contained character spam."
+  advertising: "&7[&c!&7] Your message wasn't sent because it contained advertising."

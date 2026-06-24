@@ -1,0 +1,19 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Gradle build output
+build/
+.gradle/
+
+# Gradle wrapper jars (keep gradlew, gradlew.bat, and gradle/wrapper/gradle-wrapper.properties)
+gradle/wrapper/gradle-wrapper.jar
+
+# Run configurations
+run/
+
+# OS junk
+.DS_Store
+Thumbs.db

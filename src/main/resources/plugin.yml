@@ -1,0 +1,10 @@
+name: BetterChatFilter
+version: '${version}'
+
+main: dev.gomez.java.betterChatFilter.BetterChatFilter
+api-version: '1.21'
+load: POSTWORLD
+commands:
+  bcf:
+    description: Reload BetterChatFilter config
+    usage: /bcf reload
