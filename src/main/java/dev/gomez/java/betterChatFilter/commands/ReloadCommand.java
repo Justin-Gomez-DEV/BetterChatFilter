@@ -19,7 +19,7 @@ public class ReloadCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         if(args.length > 0 && args[0].equalsIgnoreCase("reload")) {
 
-            configManager.init();
+            configManager.reload();
 
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a[BetterChatFilter] Config reloaded successfully!"));
 

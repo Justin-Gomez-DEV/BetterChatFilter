@@ -48,9 +48,17 @@ public class ConfigManager {
         betterChatFilter.saveResource("messages.yml", false);
 
         this.blacklistFile = new File(betterChatFilter.getDataFolder(), "blacklist.yml");
-        this.blacklistConfig = YamlConfiguration.loadConfiguration(this.blacklistFile);
 
         this.messagesFile = new File(betterChatFilter.getDataFolder(), "messages.yml");
+
+        reload();
+    }
+
+    public void reload() {
+        betterChatFilter.reloadConfig();
+
+        this.blacklistConfig = YamlConfiguration.loadConfiguration(this.blacklistFile);
+
         this.messagesConfig = YamlConfiguration.loadConfiguration(this.messagesFile);
     }
 }
