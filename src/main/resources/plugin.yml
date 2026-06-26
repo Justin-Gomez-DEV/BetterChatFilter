@@ -1,5 +1,5 @@
 name: BetterChatFilter
-version: '${version}'
+version: '1.0.1'
 
 main: dev.gomez.java.betterChatFilter.BetterChatFilter
 api-version: '1.21'
