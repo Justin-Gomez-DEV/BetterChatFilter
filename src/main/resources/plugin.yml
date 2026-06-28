@@ -1,10 +1,20 @@
 name: BetterChatFilter
-version: '1.0.2'
+version: '1.0.3'
 
 main: dev.gomez.java.betterChatFilter.BetterChatFilter
 api-version: '1.21'
 load: POSTWORLD
 commands:
   bcf:
-    description: Reload BetterChatFilter config
-    usage: /bcf reload
+    description: "Reload BetterChatFilter config"
+    usage: "/bcf reload"
+    permission: betterchatfilter.reload
+    permission-message: "You do not have permission to use this command"
+
+permissions:
+  betterchatfilter.reload:
+    description: "This gives access to /bcf reload"
+    default: op
+  betterchatfilter.alert:
+    description: "This gives an alert when a chat is filtered"
+    default: op

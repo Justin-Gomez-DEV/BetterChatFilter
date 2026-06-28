@@ -17,14 +17,17 @@ public class ReloadCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
-        if(args.length > 0 && args[0].equalsIgnoreCase("reload")) {
 
-            configManager.reload();
+        if(sender.hasPermission("betterchatfilter.reload")) {
+            if(args.length > 0 && args[0].equalsIgnoreCase("reload")) {
 
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a[BetterChatFilter] Config reloaded successfully!"));
+                configManager.reload();
 
-            return true;
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a[BetterChatFilter] Config reloaded successfully!"));
 
+                return true;
+
+            }
         }
 
         return false;
