@@ -1,5 +1,5 @@
 name: BetterChatFilter
-version: '1.0.3'
+version: '1.1.0'
 
 main: dev.gomez.java.betterChatFilter.BetterChatFilter
 api-version: '1.21'
@@ -15,6 +15,6 @@ permissions:
   betterchatfilter.reload:
     description: "This gives access to /bcf reload"
     default: op
-  betterchatfilter.alert:
-    description: "This gives an alert when a chat is filtered"
+  betterchatfilter.notify.update:
+    description: "This gives an plugin update notification"
     default: op
