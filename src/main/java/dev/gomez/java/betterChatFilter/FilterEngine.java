@@ -10,10 +10,8 @@ import java.util.UUID;
 
 public class FilterEngine {
 
-    // Stores the config
     private ConfigManager configManager;
 
-    // Instances
     private final ProfanityFilter profanityFilter;
     private final CapsFilter capsFilter;
     private final SpamFilter spamFilter;
@@ -21,7 +19,6 @@ public class FilterEngine {
     private final LinkFilter linkFilter;
     private final AdvertisingFilter advertisingFilter;
 
-    // Constructor
     public FilterEngine(ConfigManager configManager) {
         this.configManager = configManager;
         this.profanityFilter = new ProfanityFilter(configManager);

@@ -14,8 +14,7 @@ public class ConfigManager {
     private File blacklistFile;
     private FileConfiguration messagesConfig;
     private File messagesFile;
-
-    // GETTERS
+    
     public FileConfiguration getBlacklistConfig() {
         return blacklistConfig;
     }
@@ -36,12 +35,10 @@ public class ConfigManager {
         return messagesConfig;
     }
 
-    // ConfigManager Constructor
     public ConfigManager (BetterChatFilter betterChatFilter) {
         this.betterChatFilter = betterChatFilter;
     }
 
-    // Config Loader
     public void init(){
         betterChatFilter.saveDefaultConfig();
         betterChatFilter.saveResource("blacklist.yml", false);
