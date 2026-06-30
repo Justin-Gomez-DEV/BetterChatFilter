@@ -3,6 +3,8 @@ package dev.gomez.java.betterChatFilter;
 import dev.gomez.java.betterChatFilter.commands.ReloadCommand;
 import dev.gomez.java.betterChatFilter.config.ConfigManager;
 import dev.gomez.java.betterChatFilter.listeners.ChatListener;
+import dev.gomez.java.betterChatFilter.listeners.PlayerJoinListener;
+import dev.gomez.java.betterChatFilter.utils.UpdateChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BetterChatFilter extends JavaPlugin {
@@ -15,8 +17,17 @@ public final class BetterChatFilter extends JavaPlugin {
         FilterEngine filterEngine = new FilterEngine(configManager);
 
         getServer().getPluginManager().registerEvents(new ChatListener(filterEngine), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
         getCommand("bcf").setExecutor(new ReloadCommand(configManager));
+
+        getServer().getScheduler().runTaskAsynchronously(this, () -> {
+            UpdateChecker.check(getPluginMeta().getVersion());
+            if(UpdateChecker.isUpdateAvailable()){
+                getLogger().info("A new update is available! Download it here: https://www.spigotmc.org/resources/136505");
+            }
+        });
+        
     }
 
     @Override
