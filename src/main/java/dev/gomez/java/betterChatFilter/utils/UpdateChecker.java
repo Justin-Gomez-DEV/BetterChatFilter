@@ -32,9 +32,9 @@ public final class UpdateChecker {
 
             JsonObject json = JsonParser.parseString(response.toString()).getAsJsonObject();
 
-            latestVersion = json.get("name").getAsString();
+            latestVersion = cleanVersion(json.get("name").getAsString());
 
-            updateAvailable = !latestVersion.equals(currentVersion);
+            updateAvailable = !latestVersion.equals(cleanVersion(currentVersion));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -49,5 +49,9 @@ public final class UpdateChecker {
     public static String getLatestVersion() {
 
         return latestVersion;
+    }
+
+    private static String cleanVersion(String version) {
+        return version.replace("v", "").trim();
     }
 }
