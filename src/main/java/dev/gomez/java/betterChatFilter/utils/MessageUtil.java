@@ -10,7 +10,6 @@ public final class MessageUtil {
 
     public static void send(Player player, String message){
 
-
         if (message.contains("<#")) {
             player.sendMessage(MINI_MESSAGE.deserialize(message));
         } else {
