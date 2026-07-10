@@ -24,7 +24,7 @@ public final class BetterChatFilter extends JavaPlugin {
         getServer().getScheduler().runTaskAsynchronously(this, () -> {
             UpdateChecker.check(getPluginMeta().getVersion());
             if(UpdateChecker.isUpdateAvailable()){
-                getLogger().info("A new update is available! Download it here: https://www.spigotmc.org/resources/136505");
+                getLogger().warning("A new update is available! Download it here: https://www.spigotmc.org/resources/136505");
             }
         });
         
