@@ -1,7 +1,8 @@
 package dev.gomez.java.betterChatFilter.commands;
 
 import dev.gomez.java.betterChatFilter.config.ConfigManager;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,7 +24,7 @@ public class ReloadCommand implements CommandExecutor {
 
                 configManager.reload();
 
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a[BetterChatFilter] Config reloaded successfully!"));
+                sender.sendMessage(Component.text("[BetterChatFilter] Config reloaded successfully!").color(NamedTextColor.GREEN));
 
                 return true;
 
