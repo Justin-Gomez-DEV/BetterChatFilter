@@ -2,6 +2,7 @@ package dev.gomez.java.betterChatFilter.utils;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public final class UpdateChecker {
     private static boolean updateAvailable = false;
     private static String latestVersion = null;
 
-    public static void check(String currentVersion) {
+    public static void check(String currentVersion, JavaPlugin plugin) {
 
         updateAvailable = false;
 
@@ -22,6 +23,7 @@ public final class UpdateChecker {
             URL url = new URL("https://api.spiget.org/v2/resources/136505/versions/latest");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
@@ -42,15 +44,16 @@ public final class UpdateChecker {
             JsonObject json = JsonParser.parseString(response.toString()).getAsJsonObject();
 
             latestVersion = cleanVersion(json.get("name").getAsString());
+
             String cleanCurrentVersion = cleanVersion(currentVersion);
 
             updateAvailable = !latestVersion.equals(cleanCurrentVersion);
 
-            System.out.println("[BetterChatFilter] Current version: " + cleanCurrentVersion);
-            System.out.println("[BetterChatFilter] Latest version: " + latestVersion);
+            plugin.getLogger().info("Current version: " + cleanCurrentVersion);
+            plugin.getLogger().info("Latest version: " + latestVersion);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            plugin.getLogger().warning("Failed to check for updates: " + e.getMessage());
         }
     }
 
