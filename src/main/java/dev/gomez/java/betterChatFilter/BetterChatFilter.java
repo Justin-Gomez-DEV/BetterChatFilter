@@ -27,13 +27,15 @@ public final class BetterChatFilter extends JavaPlugin {
                 this
         );
 
-        getCommand("bcf").setExecutor(
-                new BCFCommand(configManager)
-        );
+        if (getCommand("bcf") != null) {
+            getCommand("bcf").setExecutor(
+                    new BCFCommand(configManager)
+            );
+        }
 
         getServer().getScheduler().runTaskAsynchronously(this, () -> {
 
-            UpdateChecker.check(getPluginMeta().getVersion());
+            UpdateChecker.check(getPluginMeta().getVersion(), this);
 
             if (UpdateChecker.isUpdateAvailable()) {
                 getLogger().warning(
