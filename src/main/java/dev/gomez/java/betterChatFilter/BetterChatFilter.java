@@ -14,20 +14,34 @@ public final class BetterChatFilter extends JavaPlugin {
 
         ConfigManager configManager = new ConfigManager(this);
         configManager.init();
+
         FilterEngine filterEngine = new FilterEngine(configManager);
 
-        getServer().getPluginManager().registerEvents(new ChatListener(filterEngine), this);
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(
+                new ChatListener(filterEngine),
+                this
+        );
 
-        getCommand("bcf").setExecutor(new BCFCommand(configManager));
+        getServer().getPluginManager().registerEvents(
+                new PlayerJoinListener(),
+                this
+        );
+
+        getCommand("bcf").setExecutor(
+                new BCFCommand(configManager)
+        );
 
         getServer().getScheduler().runTaskAsynchronously(this, () -> {
+
             UpdateChecker.check(getPluginMeta().getVersion());
-            if(UpdateChecker.isUpdateAvailable()){
-                getLogger().warning("A new update is available! Download it here: https://www.spigotmc.org/resources/136505");
+
+            if (UpdateChecker.isUpdateAvailable()) {
+                getLogger().warning(
+                        "A new update is available! Latest version: "
+                                + UpdateChecker.getLatestVersion()
+                );
             }
         });
-        
     }
 
     @Override
