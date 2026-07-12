@@ -6,15 +6,19 @@ api-version: '1.21'
 load: POSTWORLD
 commands:
   bcf:
-    description: "Reload BetterChatFilter config"
-    usage: "/bcf reload"
-    permission: betterchatfilter.reload
-    permission-message: "You do not have permission to use this command"
+    description: "Main command for BetterChatFilter"
+    usage: "/bcf help"
 
 permissions:
   betterchatfilter.reload:
     description: "This gives access to /bcf reload"
     default: op
-  betterchatfilter.notify.update:
+  betterchatfilter.update.notify:
     description: "This gives an plugin update notification"
+    default: op
+  betterchatfilter.chatclear:
+    description: "Allows for user to clear chat"
+    default: op
+  betterchatfilter.chatclear.bypass:
+    description: "Allows user to bypass chat clear"
     default: op
