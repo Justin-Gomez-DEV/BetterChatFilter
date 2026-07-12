@@ -1,6 +1,6 @@
 package dev.gomez.java.betterChatFilter;
 
-import dev.gomez.java.betterChatFilter.commands.ReloadCommand;
+import dev.gomez.java.betterChatFilter.commands.BCFCommand;
 import dev.gomez.java.betterChatFilter.config.ConfigManager;
 import dev.gomez.java.betterChatFilter.listeners.ChatListener;
 import dev.gomez.java.betterChatFilter.listeners.PlayerJoinListener;
@@ -19,7 +19,7 @@ public final class BetterChatFilter extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ChatListener(filterEngine), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
-        getCommand("bcf").setExecutor(new ReloadCommand(configManager));
+        getCommand("bcf").setExecutor(new BCFCommand(configManager));
 
         getServer().getScheduler().runTaskAsynchronously(this, () -> {
             UpdateChecker.check(getPluginMeta().getVersion());
