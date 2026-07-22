@@ -2,6 +2,7 @@ package dev.gomez.java.betterChatFilter;
 
 import dev.gomez.java.betterChatFilter.config.ConfigManager;
 import dev.gomez.java.betterChatFilter.filters.*;
+import dev.gomez.java.betterChatFilter.shared.permissions.EnumPermissions;
 import dev.gomez.java.betterChatFilter.utils.MessageUtil;
 import dev.gomez.java.betterChatFilter.utils.StringNormaliser;
 import org.bukkit.entity.Player;
@@ -30,6 +31,10 @@ public class FilterEngine {
     }
 
     public boolean check(String message, UUID playerId, Player player) {
+        if(player.hasPermission(EnumPermissions.BYPASS_FILTER.getPermission())){
+            return false;
+        }
+
         String normalised = StringNormaliser.normalise(message);
 
         if (profanityFilter.filter(normalised)) {
