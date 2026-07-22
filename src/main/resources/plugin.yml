@@ -1,5 +1,5 @@
 name: BetterChatFilter
-version: '1.2.3'
+version: '1.2.4'
 
 main: dev.gomez.java.betterChatFilter.BetterChatFilter
 api-version: '1.21'
