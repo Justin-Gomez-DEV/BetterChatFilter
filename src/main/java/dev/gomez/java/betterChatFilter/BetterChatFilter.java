@@ -5,12 +5,16 @@ import dev.gomez.java.betterChatFilter.config.ConfigManager;
 import dev.gomez.java.betterChatFilter.listeners.ChatListener;
 import dev.gomez.java.betterChatFilter.listeners.PlayerJoinListener;
 import dev.gomez.java.betterChatFilter.utils.UpdateChecker;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BetterChatFilter extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        int pluginId = 32825;
+        Metrics metrics = new Metrics(this, pluginId);
 
         ConfigManager configManager = new ConfigManager(this);
         configManager.init();
