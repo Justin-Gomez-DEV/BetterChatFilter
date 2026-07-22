@@ -22,3 +22,6 @@ permissions:
   betterchatfilter.chatclear.bypass:
     description: "Allows user to bypass chat clear"
     default: op
+  betterchatfilter.bypass:
+    description: "Allows user to bypass filters"
+    default: op
