@@ -7,11 +7,13 @@ plugins {
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven { url = uri("https://repo.panda-lang.org/releases") }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.2.1")
+    implementation("dev.rollczi:litecommands-bukkit:3.10.9")
 }
 
 java {
@@ -20,9 +22,6 @@ java {
 
 tasks {
     runServer {
-        // Configure the Minecraft version for our task.
-        // This is the only required configuration besides applying the plugin.
-        // Your plugin's jar (or shadowJar if present) will be used automatically.
         minecraftVersion("1.21")
         jvmArgs("-Xms2G", "-Xmx2G")
     }
@@ -55,5 +54,9 @@ tasks {
 
     build{
         dependsOn(shadowJar)
+    }
+
+    compileJava {
+        options.compilerArgs.add("-parameters")
     }
 }
