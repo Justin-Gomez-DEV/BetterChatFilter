@@ -7,6 +7,7 @@ import dev.gomez.java.betterChatFilter.utils.MessageUtil;
 import dev.gomez.java.betterChatFilter.utils.StringNormaliser;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class FilterEngine {
@@ -38,32 +39,32 @@ public class FilterEngine {
         String normalised = StringNormaliser.normalise(message);
 
         if (profanityFilter.filter(normalised)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.profanity"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.profanity")));
             return true;
         }
 
         if (capsFilter.filter(message)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.caps"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.caps")));
             return true;
         }
 
         if (spamFilter.filter(normalised, playerId)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.spam"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.spam")));
             return true;
         }
 
         if (characterSpamFilter.filter(normalised)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.character-spam"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.character-spam")));
             return true;
         }
 
         if (linkFilter.filter(message)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.links"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.links")));
             return true;
         }
 
         if (advertisingFilter.filter(normalised)) {
-            MessageUtil.send(player, configManager.getMessagesConfig().getString("messages.advertising"));
+            MessageUtil.send(player, Objects.requireNonNull(configManager.getMessagesConfig().getString("messages.advertising")));
             return true;
         }
 
