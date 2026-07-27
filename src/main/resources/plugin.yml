@@ -4,10 +4,6 @@ version: '1.2.4'
 main: dev.gomez.java.betterChatFilter.BetterChatFilter
 api-version: '1.21'
 load: POSTWORLD
-commands:
-  bcf:
-    description: "Main command for BetterChatFilter"
-    usage: "/bcf help"
 
 permissions:
   betterchatfilter.reload:
