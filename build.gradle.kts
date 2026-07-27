@@ -33,18 +33,17 @@ tasks {
         }
     }
 
-    shadowJar{
+    shadowJar {
         archiveClassifier.set("")
-
-        configurations = project.configurations.runtimeClasspath.map { setOf(it) }
-
-        dependencies {
-            exclude { it.moduleGroup != "org.bstats" }
-        }
 
         relocate(
             "org.bstats",
             "dev.gomez.java.betterChatFilter.libs.bstats"
+        )
+
+        relocate(
+            "dev.rollczi.litecommands",
+            "dev.gomez.java.betterChatFilter.libs.litecommands"
         )
     }
 
