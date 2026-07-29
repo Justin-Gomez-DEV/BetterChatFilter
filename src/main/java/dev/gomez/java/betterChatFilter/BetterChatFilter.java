@@ -18,7 +18,6 @@ public final class BetterChatFilter extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
         int pluginId = 32825;
         Metrics metrics = new Metrics(this, pluginId);
 
@@ -37,15 +36,14 @@ public final class BetterChatFilter extends JavaPlugin {
                 this
         );
 
-        getLogger().info("Registering LiteCommands...");
         this.liteCommands = LiteBukkitFactory.builder("betterchatfilter", this)
                 .commands(
-                        new BCFCommand(configManager)
+                        new HelpCommand(),
+                        new ReloadCommand(configManager),
+                        new ClearChatCommand()
                 )
                 .message(LiteMessages.MISSING_PERMISSIONS, permissions -> "Required permissions: (" + permissions.asJoinedText() + ")")
                 .build();
-
-        getLogger().info("LiteCommands registered!");
 
         getServer().getScheduler().runTaskAsynchronously(this, () -> {
 
