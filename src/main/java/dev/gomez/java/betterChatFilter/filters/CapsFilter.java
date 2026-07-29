@@ -17,7 +17,7 @@ public class CapsFilter extends BaseFilter{
         if(isEnabled){
             char[] chars = message.toCharArray();
 
-            int capsCount = 1;
+            int capsCount = 0;
 
             for (char character : chars) {
                 if(Character.isUpperCase(character)){
