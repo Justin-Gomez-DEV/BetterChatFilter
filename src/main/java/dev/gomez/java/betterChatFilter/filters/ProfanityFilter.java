@@ -16,7 +16,6 @@ public class ProfanityFilter extends BaseFilter{
     public boolean filter(String message) {
         boolean isEnabled = configManager.getPlugin().getConfig().getBoolean("filters.profanity.enabled");
         if(isEnabled) {
-
             List<String> profanityWords = configManager.getBlacklistConfig().getStringList("profanity");
 
             for (String profanityWord : profanityWords) {
@@ -24,7 +23,6 @@ public class ProfanityFilter extends BaseFilter{
                     return true;
                 }
             }
-
         }
 
         return false;

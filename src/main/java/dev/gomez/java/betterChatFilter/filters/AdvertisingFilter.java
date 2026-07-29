@@ -15,7 +15,6 @@ public class AdvertisingFilter extends BaseFilter{
     public boolean filter(String message){
         boolean isEnabled = configManager.getPlugin().getConfig().getBoolean("filters.advertising.enabled");
         if(isEnabled) {
-
             List<String> blacklistedAdvertisings = configManager.getBlacklistConfig().getStringList("advertising");
 
             for (String advertising : blacklistedAdvertisings) {
@@ -23,7 +22,6 @@ public class AdvertisingFilter extends BaseFilter{
                     return true;
                 }
             }
-
         }
 
         return false;

@@ -31,7 +31,6 @@ public class CharacterSpamFilter extends BaseFilter{
                 }
                 lastChar = character;
             }
-
         }
 
         return false;

@@ -15,7 +15,6 @@ public class LinkFilter extends BaseFilter{
     public boolean filter(String message){
         boolean isEnabled = configManager.getPlugin().getConfig().getBoolean("filters.links.enabled");
         if(isEnabled) {
-
             List<String> blacklistedLinks = configManager.getBlacklistConfig().getStringList("links");
 
             for (String link : blacklistedLinks) {
@@ -23,7 +22,6 @@ public class LinkFilter extends BaseFilter{
                     return true;
                 }
             }
-
         }
 
         return false;

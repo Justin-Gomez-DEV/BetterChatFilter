@@ -15,7 +15,6 @@ public class CapsFilter extends BaseFilter{
         boolean isEnabled = configManager.getPlugin().getConfig().getBoolean("filters.caps.enabled");
 
         if(isEnabled){
-
             char[] chars = message.toCharArray();
 
             int capsCount = 1;
@@ -33,7 +32,6 @@ public class CapsFilter extends BaseFilter{
             if(threshold <= capsPercentage){
                 return true;
             }
-
         }
 
         return false;

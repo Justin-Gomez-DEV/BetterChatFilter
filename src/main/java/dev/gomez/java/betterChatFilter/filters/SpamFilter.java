@@ -18,7 +18,6 @@ public class SpamFilter {
     public boolean filter(String message, UUID playerId){
         boolean isEnabled = configManager.getPlugin().getConfig().getBoolean("filters.spam.enabled");
         if(isEnabled){
-
             if(lastMessages.containsKey(playerId)){
                 if(lastMessages.get(playerId).equals(message)){
                     return true;
@@ -26,7 +25,6 @@ public class SpamFilter {
             }
 
                 lastMessages.put(playerId, message);
-
         }
 
         return false;
