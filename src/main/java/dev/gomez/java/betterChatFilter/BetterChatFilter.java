@@ -40,7 +40,8 @@ public final class BetterChatFilter extends JavaPlugin {
                 .commands(
                         new HelpCommand(),
                         new ReloadCommand(configManager),
-                        new ClearChatCommand()
+                        new ClearChatCommand(),
+                        new BlacklistManagementCommand(configManager)
                 )
                 .message(LiteMessages.MISSING_PERMISSIONS, permissions -> "Required permissions: (" + permissions.asJoinedText() + ")")
                 .build();
