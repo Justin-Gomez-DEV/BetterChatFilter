@@ -5,7 +5,9 @@ public enum EnumPermissions {
     CLEAR_CHAT("betterchatfilter.clearchat"),
     CLEAR_CHAT_BYPASS("betterchatfilter.clearchat.bypass"),
     UPDATE_NOTIFY("betterchatfilter.update.notify"),
-    BYPASS_FILTER("betterchatfilter.bypass");
+    BYPASS_FILTER("betterchatfilter.bypass"),
+    BLACKLIST_ADD("betterchatfilter.filter.add"),
+    BLACKLIST_REMOVE("betterchatfilter.filter.remove");
 
     private final String permission;
 
