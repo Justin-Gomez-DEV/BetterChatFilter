@@ -21,3 +21,9 @@ permissions:
   betterchatfilter.bypass:
     description: "Allows user to bypass filters"
     default: op
+  betterchatfilter.blacklist.add:
+    description: "Allows user to add new words to the blacklist"
+    default: op
+  betterchatfilter.blacklist.remove:
+    description: "Allows user to remove words from the blacklist"
+    default: op
