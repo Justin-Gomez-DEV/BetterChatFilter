@@ -5,6 +5,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
 
 public class ConfigManager {
 
@@ -57,5 +59,13 @@ public class ConfigManager {
         this.blacklistConfig = YamlConfiguration.loadConfiguration(this.blacklistFile);
 
         this.messagesConfig = YamlConfiguration.loadConfiguration(this.messagesFile);
+    }
+
+    public void save(FileConfiguration config, File file) {
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            betterChatFilter.getLogger().log(Level.SEVERE, "Could not save configuration file", e);
+        }
     }
 }
